@@ -15,7 +15,7 @@ ENV SELF_URL_PATH=http://localhost \
     DB_PASS=ttrss
 RUN wget -q -O- ${TTRSS_URL} | tar -xzC . --strip-components 1 && \
     wget -q -O- ${FEVER_URL} | tar -xzC plugins/ --strip-components 1 --one-top-level=fever && \
-    wget -q -O- ${TUMBLR_GDPR_URL} | tar -xzC plugins/ --strip-components 1 --one-top-level=gdpr && \
+    wget -q -O- ${TUMBLR_GDPR_URL} | tar -xzC plugins/ --strip-components 1 --one-top-level=tumblr_gdpr && \
     wget -q -O- ${FEEDLY_URL} | tar -xzC /tmp --strip-components 1 && \
       mv /tmp/feedly.css /tmp/feedly themes/ && \
     rm -rf /tmp/* && \
