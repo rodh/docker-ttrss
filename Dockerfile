@@ -4,6 +4,7 @@ LABEL maintainer="jeff@ressourcenkonflikt.de"
 
 ARG TTRSS_URL=https://git.tt-rss.org/git/tt-rss/archive/master.tar.gz
 ARG FEVER_URL=https://github.com/DigitalDJ/tinytinyrss-fever-plugin/archive/master.tar.gz
+ARG TUMBLR_GDPR_URL=https://github.com/GregThib/ttrss-tumblr-gdpr/archive/master.tar.gz
 ARG FEEDLY_URL=https://github.com/levito/tt-rss-feedly-theme/archive/master.tar.gz
 
 ENV SELF_URL_PATH=http://localhost \
@@ -14,6 +15,7 @@ ENV SELF_URL_PATH=http://localhost \
     DB_PASS=ttrss
 RUN wget -q -O- ${TTRSS_URL} | tar -xzC . --strip-components 1 && \
     wget -q -O- ${FEVER_URL} | tar -xzC plugins/ --strip-components 1 --one-top-level=fever && \
+    wget -q -O- ${TUMBLR_GDPR_URL} | tar -xzC plugins/ --strip-components 1 --one-top-level=gdpr && \
     wget -q -O- ${FEEDLY_URL} | tar -xzC /tmp --strip-components 1 && \
       mv /tmp/feedly.css /tmp/feedly themes/ && \
     rm -rf /tmp/* && \
